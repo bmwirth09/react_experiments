@@ -1,0 +1,5 @@
+node_modules/
+.module-cache
+*.pyc
+db.sqlite3
+static/dist/
