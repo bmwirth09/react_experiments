@@ -1,12 +1,10 @@
 import json
-from urlparse import parse_qsl
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.views.generic import TemplateView, View
 
 COMMENTS_DATA = [
-    {"author": "Pete Hunt", "text": "This is one comment"},
-    {"author": "Jordan Walke", "text": "This is another comment"},
-    {"author": "Michael Stepanovic", "text": "Shut the fuck up"}
+    {"author": "Mike Laderman", "text": "Later man"},
+    {"author": "Mark Stenquist", "text": "Stank the tank"},
 ]
 
 
@@ -26,7 +24,7 @@ class CommentsAPI(View):
 
     def post(self, request, *args, **kwargs):
         try:
-            COMMENTS_DATA.append(json.loads(request.body))
+            COMMENTS_DATA.append(json.loads(request))
             return self.get(request, *args, **kwargs)
         except:
             return HttpResponseBadRequest('nada', content_type='application/json')
