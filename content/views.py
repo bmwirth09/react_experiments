@@ -26,7 +26,7 @@ class CommentsAPI(View):
 
     def post(self, request, *args, **kwargs):
         try:
-            COMMENTS_DATA.append(dict(parse_qsl(request.body)))
+            COMMENTS_DATA.append(json.loads(request.body))
             return self.get(request, *args, **kwargs)
         except:
             return HttpResponseBadRequest('nada', content_type='application/json')

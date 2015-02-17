@@ -3,10 +3,10 @@ var React = require('react'),
 
 module.exports = React.createClass({
   render: function() {
-    var commentNodes = this.props.data.map(function (comment) {
+    var commentNodes = this.props.comments.map(function (comment) {
       return (
-        <Comment author={comment.author}>
-          {comment.text}
+        <Comment author={comment.get('author')}>
+          {comment.get('text')}
         </Comment>
       );
     });

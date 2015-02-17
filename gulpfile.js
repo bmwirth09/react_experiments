@@ -15,5 +15,10 @@ gulp.task('browserify', function(){
 
 });
 
+gulp.task('watch', function(){
+  gulp.watch('static/js/**/*.js', ['browserify']);
+  gulp.watch('static/js/**/*.jsx', ['browserify']);
+});
+
 // Run tasks
-gulp.task('default', ['browserify']);
+gulp.task('default', ['browserify', 'watch']);
